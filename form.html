@@ -1,0 +1,53 @@
+
+
+
+<form onsubmit="return validation()">
+    <label for="name">Username:</label>
+    <input type="text" id="name" name="name"><span id="nameError"></span><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><span id="emailError"></span><br><br>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea><span id="messageError"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    function validation() {
+        const username = document.getElementById("name");
+        const email = document.getElementById("email");
+        const message = document.getElementById("message");
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const messageError = document.getElementById("messageError");
+
+        let isValid = true;
+
+        if (username.value === "") {
+            nameError.textContent = "Username cannot be empty";
+            username.focus();
+            isValid = false;
+        } else {
+            nameError.textContent = "";
+        }
+
+        if (email.value === "") {
+            emailError.textContent = "Email cannot be empty";
+            email.focus();
+            isValid = false;
+        } else {
+            emailError.textContent = "";
+        }
+
+        if (message.value === "") {
+            messageError.textContent = "Message cannot be empty";
+            message.focus();
+            isValid = false;
+        } else {
+            messageError.textContent = "";
+        }
+
+        return isValid;
+    }
+</script>
+
+        
